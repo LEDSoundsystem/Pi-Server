@@ -1,0 +1,25 @@
+{
+  "name": "ledsound_pi",
+  "version": "0.0.0",
+  "description": "REST Endpoint for LEDSoundsystem.",
+  "main": "app.js",
+  "scripts": {
+    "test": "\"echo \\\"Error: no tests specified\\\" && exit 1\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/LEDSoundsystem/Pi-Server.git"
+  },
+  "keywords": [
+    "pi"
+  ],
+  "author": "Evan Nichols",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LEDSoundsystem/Pi-Server/issues"
+  },
+  "dependencies": {
+    "connect": "^3.4.1",
+    "express": "^4.13.4"
+  }
+}
