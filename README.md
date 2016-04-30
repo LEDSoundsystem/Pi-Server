@@ -10,4 +10,4 @@ return: song ID to be used for following POST requests with heartrate data
 return: TRUE if receieved successfully and added to heart_rate array, FALSE if not
 
 #### Useful Links
-(Echo Nest API Acoustic Attributes Overview)[http://developer.echonest.com/acoustic-attributes.html]
+[Echo Nest API Acoustic Attributes Overview](http://developer.echonest.com/acoustic-attributes.html)
