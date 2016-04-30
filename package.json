@@ -19,6 +19,7 @@
     "url": "https://github.com/LEDSoundsystem/Pi-Server/issues"
   },
   "dependencies": {
+    "body-parser": "^1.15.0",
     "connect": "^3.4.1",
     "express": "^4.13.4"
   }

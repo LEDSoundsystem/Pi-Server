@@ -9,11 +9,12 @@
 window.onload = function () {
   var url, i;
 
-  for (i = 0; i < 2; i++) {
-    url = document.URL + 'inputs/' + i;
+  for (i = 0; i < 5; i++) {
+    url = document.URL + 'quote/' + i;
+    console.log("URL is: "+url);
     $.getJSON(url, function (data) {
       console.log('API response received');
-      $('#input').append('<p>input gpio port ' + data.gpio + ' on pin ' + data.pin + ' has current value ' + data.value + '</p>');
+      $('#input').append('<p>Author: ' + data.author + ' Text: ' + data.text + '</p>');
     });
   }
 };
