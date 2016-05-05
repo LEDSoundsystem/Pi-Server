@@ -35,33 +35,36 @@ app.use(express.static(__dirname));
 app.post('/songs',function(req,res){
     console.log("SONG POST RECEIVED");
 
-    if(!req.body.song.hasOwnProperty('danceability') || !req.body.song.hasOwnProperty('energy')){
+    if(!req.body.hasOwnProperty('danceability') || !req.body.hasOwnProperty('energy')){
         res.statusCode = 400;
         return res.send("Error 400: Post syntax incorrect.");
     }
 
     var newSong = {
-        "song":{    "danceability": req.body.song.danceability,
-                    "energy": req.body.song.energy,
-                    "key": req.body.song.key,
-                    "loudness": req.body.song.loudness,
-                    "mode": req.body.song.mode,
-                    "speechiness": req.body.song.speechiness,
-                    "acousticness": req.body.song.acousticness,
-                    "instrumentalness": req.body.song.instrumentalness,
-                    "liveness": req.body.song.liveness,
-                    "valence": req.body.song.valence,
-                    "tempo": req.body.song.temp,
-                    "duration_ms": req.body.song.duration_ms,
-                    "time_signature": req.body.song.time_signature,
-        },
-        "name": req.body.name,
-        "heart_rate": [parseFloat(req.body.heart_rate)]
+                  "danceability": req.body.danceability,
+                   "energy": req.body.energy,
+                   "key": req.body.key,
+                   "loudness": req.body.loudness,
+                   "mode": req.body.mode,
+                   "speechiness": req.body.speechiness,
+                   "acousticness": req.body.acousticness,
+                   "instrumentalness": req.body.instrumentalness,
+                   "liveness": req.body.liveness,
+                   "valence": req.body.valence,
+                   "tempo": req.body.temp,
+                   "duration_ms": req.body.duration_ms,
+                   "time_signature": req.body.time_signature,
+                   "track_href": req.body.track_href,
+                   "heart_rate": []
     };
 
+    console.log(newSong);
+
     songs.push(newSong);
+
     res.json(songsReceieved);
     songsReceieved++;
+
 });
 
 app.post('/songs/:id',function(req,res){

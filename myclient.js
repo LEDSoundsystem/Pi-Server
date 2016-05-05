@@ -10,11 +10,11 @@ window.onload = function () {
   var url, i;
 
   for (i = 0; i < 5; i++) {
-    url = document.URL + 'quote/' + i;
+    url = document.URL + 'songs/' + i;
     console.log("URL is: "+url);
     $.getJSON(url, function (data) {
       console.log('API response received');
-      $('#input').append('<p>Author: ' + data.author + ' Text: ' + data.text + '</p>');
+      $('#input').append('<p>Track Href: ' + data.track_href + ' danceability: ' + data.danceability + '</p>');
     });
   }
 };
