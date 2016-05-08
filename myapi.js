@@ -22,6 +22,18 @@ app.use(bodyParser.json());
 // dummy song variable
 var songs =  [];
 var songsReceieved=0;
+var totalSamples = 0;
+
+/**************************************************************
+* Update max heartrate
+***************************************************************/
+
+function updateSong(song){
+    song.init_heart_rate = song.heart_rate[0];
+    song.total_samples = totalSamples;
+    song.max_heart_rate = Math.max(song.heart_rate);
+    song.min_heart_rate = Math.min(song.heart_rate);
+}
 
 /**************************************************************
 * Configure Express to serve index.html and any other static
@@ -55,7 +67,9 @@ app.post('/songs',function(req,res){
                    "duration_ms": req.body.duration_ms,
                    "time_signature": req.body.time_signature,
                    "track_href": req.body.track_href,
-                   "heart_rate": []
+                   "heart_rate": [],
+                   "init_heart_rate": 0,
+                   "total_samples": 0
     };
 
     console.log(newSong);
@@ -68,6 +82,7 @@ app.post('/songs',function(req,res){
 });
 
 app.post('/songs/:id',function(req,res){
+
     if( !req.body.hasOwnProperty('heart_rate') ){
         res.statusCode = 400;
         return res.send("Error 400: Post syntax incorrect.");
@@ -78,6 +93,11 @@ app.post('/songs/:id',function(req,res){
 
     //push the new heartrate value onto the songs hear_rate array
     songs[req.params.id].heart_rate.push(parseFloat(req.body.heart_rate));
+
+    totalSamples++;
+
+    updateSong(songs[req.params.id]);
+
 
     res.json(true);
 
