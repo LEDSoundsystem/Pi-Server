@@ -14,7 +14,8 @@ window.onload = function () {
     console.log("URL is: "+url);
     $.getJSON(url, function (data) {
       console.log('API response received');
-      $('#songs').append('<p>Link to Track on Spotify: ' + "<a href =" + data.track_href + ">"+ data.track_href + "</a>" + '<br> Danceability: ' + data.danceability + '<br> Heart Rate: '+ data.heart_rate + '</p>');
+      console.log(data);
+      $('#songs').append('<p>Link to Track on Spotify: ' + "<a href =" + data.track_href + ">"+ data.track_href + "</a>" + '<br> Danceability: ' + data.danceability + '<br> Heart Rate: '+ data.heart_rate + '<br> Time: '+ data.time + '</p>' );
     });
   }
 };
