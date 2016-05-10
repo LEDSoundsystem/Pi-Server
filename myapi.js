@@ -68,7 +68,7 @@ app.post('/songs',function(req,res){
                    "time_signature": req.body.time_signature,
                    "track_href": req.body.track_href,
                    "heart_rate": [],
-                   "time": []
+                   "time": [],
                    "init_heart_rate": 0,
                    "total_samples": 0
     };
