@@ -68,6 +68,7 @@ app.post('/songs',function(req,res){
                    "time_signature": req.body.time_signature,
                    "track_href": req.body.track_href,
                    "heart_rate": [],
+                   "time": [],
                    "init_heart_rate": 0,
                    "total_samples": 0
     };
@@ -92,7 +93,9 @@ app.post('/songs/:id',function(req,res){
     console.log(req.body);
 
     //push the new heartrate value onto the songs hear_rate array
-    songs[req.params.id].heart_rate.push(parseFloat(req.body.heart_rate));
+    var hr = parseFloat(req.body.heart_rate);
+    songs[req.params.id].heart_rate.push(hr);
+    songs[req.params.id].time.push(parseFloat(req.body.time));
 
     totalSamples++;
 
